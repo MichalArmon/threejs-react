@@ -1,5 +1,7 @@
+import Counter from "./components/Counter";
 import Scene from "./Scene";
 import { Box, Typography, Button } from "@mui/material";
+Counter;
 
 export default function App() {
   return (
@@ -29,11 +31,7 @@ export default function App() {
           zIndex: 1,
         }}
       >
-        <Typography variant="h2">My Website</Typography>
-
-        <Typography variant="h5">Welcome to my world</Typography>
-
-        <Button variant="contained">Get Started</Button>
+        <Counter />
       </Box>
     </>
   );
