@@ -76,6 +76,9 @@ export default function Scene() {
     controls.zoomSpeed = 2;
     controls.minDistance = 0.1;
     controls.maxDistance = 30;
+    controls.enabled = false;
+    
+
 
     // RESIZE
     const handleResize = () => {
