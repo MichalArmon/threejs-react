@@ -1,11 +1,12 @@
-import Counter from "./components/Counter";
+import Main from "./layout/main/Main";
+import Home from "./pages/Home";
 import Scene from "./Scene";
-import { Box, Typography, Button } from "@mui/material";
-Counter;
+import { Box } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
       {/* BACKGROUND */}
       <Box
         sx={{
@@ -18,21 +19,11 @@ export default function App() {
         <Scene />
       </Box>
 
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "white",
-          gap: 3,
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <Counter />
-      </Box>
-    </>
+      <Routes>
+        <Route path="/" element={<Main />}>
+          <Route index element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

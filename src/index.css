@@ -9,7 +9,7 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   background: linear-gradient(0deg, rgb(198, 223, 243), rgb(116, 152, 169) 60%, rgb(62, 106, 125))
 }
 
