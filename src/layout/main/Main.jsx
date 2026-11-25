@@ -1,9 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 function Main() {
   return (
-    <Box
+    <Container
+      maxWidth="xl"
       component="main"
       sx={{
         minHeight: "100vh",
@@ -15,10 +16,11 @@ function Main() {
         gap: 3,
         position: "relative",
         zIndex: 1,
+        mt: 10,
       }}
     >
       <Outlet />
-    </Box>
+    </Container>
   );
 }
 

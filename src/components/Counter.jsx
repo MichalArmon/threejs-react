@@ -32,6 +32,7 @@ export default function Counter() {
         boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
         textAlign: "center",
         color: "white",
+        marginBottom: 10,
       }}
     >
       <Typography variant="h6" sx={{ letterSpacing: 4, opacity: 0.7 }}>
