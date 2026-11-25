@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    return Number(localStorage.getItem("counter")) || 0;
+  });
+
+  useEffect(() => {
+    const correctCount = localStorage.getItem("counter");
+    setCount(Number(correctCount));
+  }, [count]);
+
+  const onInCount = () => {
+    setCount((prev) => prev + 1);
+    localStorage.setItem("counter", count + 1);
+  };
+  const onDeCount = () => {
+    setCount((prev) => prev - 1);
+    localStorage.setItem("counter", count - 1);
+  };
 
   return (
     <Box
@@ -35,7 +51,7 @@ export default function Counter() {
       >
         <Button
           variant="outlined"
-          onClick={() => setCount(count - 1)}
+          onClick={onDeCount}
           sx={{
             color: "white",
             borderColor: "rgba(255,255,255,0.3)",
@@ -48,7 +64,7 @@ export default function Counter() {
 
         <Button
           variant="contained"
-          onClick={() => setCount(count + 1)}
+          onClick={onInCount}
           sx={{
             backgroundColor: "#8064cf",
             fontSize: 30,
@@ -60,7 +76,10 @@ export default function Counter() {
       </Box>
 
       <Button
-        onClick={() => setCount(0)}
+        onClick={() => {
+          setCount(0);
+          localStorage.setItem("counter", 0);
+        }}
         sx={{ mt: 3, color: "white", opacity: 0.7 }}
       >
         Reset
